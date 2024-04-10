@@ -24,6 +24,8 @@ struct LandingView: View {
     //MARK: functions
     
     
+    
+    
     //create the new list of to-do item instance
     
     var body: some View {
@@ -33,9 +35,16 @@ struct LandingView: View {
             VStack {
                 
                 List (todos) { todo in
+                    
                     ItemView(currentItem: todo)
                     
-                    
+                    //delete a to-do item
+                        .swipeActions {
+                            Button(
+                                "Delete", role: .destructive, action: { delete(todo)
+                                }
+                            )
+                        }
                 }
                 
                 .searchable(text: $searchText)
@@ -62,11 +71,18 @@ struct LandingView: View {
         
         todos.append(todo)
     }
+        func delete(_ todo: TodoItem) {
+            //remove the provided to-do item from the array
+            todos.removeAll { currentItem in
+                currentItem.id == todo.id
+            }
+        
+    }
 }
-
+    
 #Preview {
-    LandingView()
-}
-
+        LandingView()
+    }
+    
 
 
