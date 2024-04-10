@@ -34,7 +34,7 @@ struct LandingView: View {
             
             VStack {
                 
-                List (todos) { todo in
+                List ($todos) { $todo in
                     
                     ItemView(currentItem: todo)
                     
@@ -44,6 +44,10 @@ struct LandingView: View {
                                 "Delete", role: .destructive, action: { delete(todo)
                                 }
                             )
+                        }
+                    //tap to mark as done
+                        .onTapGesture {
+                            todo.done.toggle()
                         }
                 }
                 
