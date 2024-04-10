@@ -5,6 +5,7 @@
 //  Created by Danika Peet on 2024-04-08.
 //
 
+import SwiftData
 import SwiftUI
 
 struct LandingView: View {
@@ -21,12 +22,8 @@ struct LandingView: View {
     // the search text
     @State var searchText = ""
     
-    //MARK: functions
-    
-    
-    
-    
-    //create the new list of to-do item instance
+    // Access the model context (required to do additons, updates, ect..)
+    @Environment(\.modelContext) var modelContext
     
     var body: some View {
         
