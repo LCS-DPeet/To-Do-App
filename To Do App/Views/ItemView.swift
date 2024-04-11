@@ -20,7 +20,7 @@ struct ItemView: View {
                 //tap to mark as done
                     .onTapGesture {
                         currentItem.done.toggle()
-                    }
+                                            }
             }
         )
     }

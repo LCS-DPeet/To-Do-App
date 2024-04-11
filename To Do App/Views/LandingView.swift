@@ -50,6 +50,10 @@ struct LandingView: View {
                     Button("ADD") {
                         // add the new to-do item
                         createToDo(withTitle: newItemDescription)
+                        
+                        //reset text
+                        newItemDescription = ""
+                        
                     }
                     .font(.caption)
                     .disabled(newItemDescription.isEmpty == true)
